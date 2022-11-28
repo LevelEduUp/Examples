@@ -34,4 +34,5 @@ jobs:
         #working-directory: ./terraform-modules
         shell: pwsh
         run: |
-          ..\scripts\Copy-FilesToAzureStorage.ps1
+          pwd
+          .\scripts\Copy-FilesToAzureStorage.ps1
