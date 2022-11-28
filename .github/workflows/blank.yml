@@ -1,26 +1,17 @@
-name: Blank
+name: Copy to storage account
 
 on:
   push:
     branches: 
-      - "example"
-      - "feat/blank-yaml"  #Not existing branch. For example only
-  pull_request:
-    branches: [ "example" ] #Not existing branch. For example only
+      - "feat/copy-to-storage"  #Not existing branch. For example only
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
@@ -35,12 +26,10 @@ jobs:
       
       - name: Azure Login
         uses: Azure/login@v1.4.6
-        with:
-          # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+        with:   
           creds: ${{ secrets.AZURE_LEVELEDUUP_CREDENTIALS }}
-          #subscription-id: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxx"
           enable-AzPSSession: true
-          # Set this value to true to enable support for accessing tenants without subscriptions
-          #allow-no-subscriptions: # optional
+
+      
           
       
