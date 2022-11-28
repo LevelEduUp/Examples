@@ -2,14 +2,21 @@
 param (
     [Parameter()]
     [string]
-    $ContainerName
+    $ContainerName,
+    
+    [Parameter()]
+    [string]
+    $accountname = 'levelupexample'
+
 )
 
-for ($i = 0; $i -lt 10; $i++) {
+for ($i = 0; $i -lt 1; $i++) {
     New-Item -Name "$i.txt" 
 }
-az storage container create --account-name "levelupexample" -n $ContainerName.Replace(" ", "").ToLower() --public-access blob --auth-mode login
+$Container = $ContainerName.Replace(" ", "").ToLower()
+az storage container create --account-name $accountname -n $Container --public-access blob --auth-mode login
 
 foreach ($item in $(Get-ChildItem | Where-Object {$_.Name -like "*.txt"})) {
-    $item
+    $item.Name
+    az storage blob upload -f "$item" -n $item.Name -c $Container --account-name $accountname  
 }
