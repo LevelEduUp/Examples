@@ -36,7 +36,7 @@ jobs:
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
           creds: ${{ secrets.AZURE_LEVELEDUUP_CREDENTIALS }}
-          #subscription-id: # optional
+          subscription-id: "f94114f6-fa42-492a-81e3-47da278a013c"
           enable-AzPSSession: true
           # Set this value to true to enable support for accessing tenants without subscriptions
           #allow-no-subscriptions: # optional
