@@ -28,7 +28,7 @@ jobs:
           creds: ${{ secrets.AZURE_LEVELEDUUP_CREDENTIALS }}
           enable-AzPSSession: true
 
-      - name: PS Confirm-TFmodulesValidation.ps1
+      - name: PS Copy files
         #working-directory: ./terraform-modules
         shell: pwsh
         run: |
