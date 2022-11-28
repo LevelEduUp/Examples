@@ -32,4 +32,4 @@ jobs:
         #working-directory: ./terraform-modules
         shell: pwsh
         run: |
-          .\scripts\Copy-FilesToAzureStorage.ps1 -ContainerName "${{ github.run_number }}"
+          .\scripts\Copy-FilesToAzureStorage.ps1 -ContainerName "${{ github.workflow }}${{ github.run_number }}"
