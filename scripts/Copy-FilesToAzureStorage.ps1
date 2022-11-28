@@ -11,9 +11,9 @@ param (
 )
 
 # Generating files step
-for ($i = 0; $i -lt 10; $i++) {
-    New-Item -Name "$i.txt" 
-}
+#for ($i = 0; $i -lt 10; $i++) {
+#    New-Item -Name "$i.txt" 
+#}
 
 $files = $(Get-ChildItem | Where-Object {$_.Name -like "*.txt"})
 
